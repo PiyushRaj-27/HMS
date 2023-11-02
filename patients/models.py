@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 class patients(models.Model):
     fname = models.CharField(max_length= 20)
     lname = models.CharField(max_length= 20)
+    age = models.CharField(max_length=3, default="25")
+    bloodGrp = models.CharField(max_length=5, default="A+")
     state = models.CharField(max_length= 40)
     city = models.CharField(max_length= 50)
     pincode = models.CharField(max_length= 8)

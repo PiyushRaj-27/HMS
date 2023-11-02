@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>Hospital management System</title>
+    {% load static %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home">MediConnect</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container-fluid d-flex flex-column align-items-center p-5 bg-light">
+        <div class="card mt-5" style="width: 18rem;">
+            <img src="{{img}}" class="card-img-top">
+          </div>
+          <div class="container-md text-center mt-5">
+            <div class="row">
+              <div class="col">
+                <h1>Welcome, {{fname}} {{lname}}</h1>
+              </div>
+            </div>
+          </div>
+          <div class="container-md text-center mt-5">
+            <div class="row">
+              <div class="col">
+                <h3><span class="badge rounded-pill text-bg-primary"><b>Email: </b> {{email}}</span></h3>  
+              </div>
+            </div>
+          </div>
+          <div class="container-md text-center mt-5">
+            <div class="row">
+                <div class="col">
+                    <h5><b>Department: </b>{{ department }}</h5>
+                </div>
+                <div class="col">
+                    <h5><b>Level: </b> {{level}}</h5>
+                  </div>
+              <div class="col">
+                <h5><b>Age: </b> {{age}}</h5>
+              </div>
+              <div class="col">
+                <h5><b>Blood Group: </b> {{blood}}</h5>  
+              </div>
+            </div>
+          </div>
+          <div class="container-md text-center mt-5">
+            <div class="row">
+              <div class="col">
+                <h5><b>State: </b> {{state}}</h5>
+              </div>
+              <div class="col">
+                <h5><b>City: </b> {{city}}</h5>  
+              </div>
+              <div class="col">
+                <h5><b>Address: </b> {{address}}</h5>  
+              </div>
+            </div>
+          </div>
+          <div class="container-md text-center mt-5">
+            <div class="row">
+              <div class="col">
+                <h5><a class="btn btn-primary ms-5" href="/staff/logout" role="button">Logout</a></h5>
+              </div>
+              <div class="col">
+                <h5><a class="btn btn-primary ms-5" href="/staff/dashboard" role="button">In dev</a></h5>  
+              </div> 
+            </div>
+          </div>
+    </div>
+
+</body>
+</html>

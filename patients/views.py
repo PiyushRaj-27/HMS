@@ -5,6 +5,8 @@ from .models import patients
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import string
+#dummy data      email: test2@gmail.com      pass: test.123123
+
 # Create your views here.
 def authenticateName(fname: str, lname: str) -> bool:
     if fname.isalpha() and lname.isalpha():
@@ -50,6 +52,8 @@ def register(request):
         img = request.FILES["pic"]
         pass1 = request.POST["pass1"]
         pass2 = request.POST["pass2"]
+        blood = request.POST["blood"]
+        age = request.POST["age"]
         namecheck = authenticateName(fname= fname, lname= lname)
         if namecheck:
             passcheck = authenticatePass(pass1)
@@ -74,6 +78,8 @@ def register(request):
                         p1.email = u1
                         p1.empl = empl
                         p1.marr = marraige
+                        p1.age = age
+                        p1.bloodGrp = blood
                         p1.img = img
                         p1.save()
                         context["isRegistered"] = True
@@ -103,12 +109,59 @@ def loginuser(request):
             print("logged in")
             login(request, user)
             context["loggedIn"] = True
+            return redirect("/users/dashboard")
         else:
             context["invalid"] = True
     return render(request, "login.html", context= context)
 
-@login_required
+@login_required(login_url="/users/login")
 def logoutuser(request):
     if request.user.is_authenticated:
         logout(request)
     return redirect("/")
+
+@login_required(login_url="/users/login")
+def dashboard(request):
+    userid = request.user.id
+    patient = patients.objects.get(email_id = userid)
+    imgUrl = patient.img.url
+
+    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp} 
+    return render(request,"patientDashBoard.html", context)
+
+
+@login_required(login_url="/users/login")
+def update(request):
+    userid = request.user.id
+    patient = patients.objects.get(email_id = userid)
+    context = {"invalidName": False}
+    if request.method == "POST":
+        fname = request.POST["fname"]
+        lname = request.POST["lname"]
+        state = request.POST["state"]
+        city = request.POST["city"]
+        pincode = request.POST["pincode"]
+        address = request.POST["address"]
+        phone = request.POST["phone"]
+        marraige = request.POST["martial"]
+        empl = request.POST["empl"]
+        blood = request.POST["blood"]
+        age = request.POST["age"]
+        namecheck = authenticateName(fname= fname, lname= lname)
+        if namecheck:
+            patient.fname = fname
+            patient.lname = lname
+            patient.state = state
+            patient.city = city
+            patient.pincode = pincode
+            patient.address = address
+            patient.phone = phone
+            patient.marr = marraige
+            patient.empl = empl
+            patient.age = age
+            patient.bloodGrp = blood
+            patient.save()
+            return redirect("/users/dashboard")
+        else:
+            context["invalidName"] = True
+    return render(request, "patientUpdateDetail.html", context)

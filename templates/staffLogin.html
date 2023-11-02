@@ -42,7 +42,7 @@
     <div class="container-fluid p-5">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Already Logged In.</strong> Click here to Logout.
-            <a class="btn btn-primary ms-5" href="/users/logout" role="button">Logout</a>
+            <a class="btn btn-primary ms-5" href="/staff/logout" role="button">Logout</a>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
@@ -56,9 +56,9 @@
     </div>
     {% endif %}
     <div class="container-fluid p-5 bg-light">
-        <h2 class="mb-5">Patient Login</h2>
+        <h2 class="mb-5">Staff Login</h2>
         <div class="container-fluid bg-light">
-            <form action="/users/login" method="post">
+            <form action="/staff/login" method="post">
                 {% csrf_token %}
                 <div class="row mt-3 mb-3">
                     <div class="col-md-3">

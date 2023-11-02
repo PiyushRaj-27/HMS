@@ -22,6 +22,9 @@
                 <a class="nav-link active" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
               </li>
               
@@ -52,9 +55,15 @@
                 <div class="card text-center" style="width: 18rem;">
                     <img src="{% static '/images/patient3.png' %}" class="card-img-top" alt="...">
                     <div class="card-body">
+                    {% if loggedIn %}
+                    <h5 class="card-title">Patient Dashboard</h5>
+                    <p class="card-text">Click here to view Dashboard.</p>
+                    <a href="/users/dashboard" class="btn btn-success">Dashboard</a>
+                    {% else %}
                       <h5 class="card-title">Patient Login</h5>
                       <p class="card-text">Click here to login.</p>
                       <a href="/users/login" class="btn btn-success">Login</a>
+                    {% endif %}
                     </div>
                   </div>
               </div>
@@ -99,5 +108,57 @@
             </div>
           </div>
       </div>
+
+
+
+
+<footer class="text-center text-lg-start bg-light text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+  </section>
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">MediConnect
+          </h6>
+          <p>
+            MediConnect: Bridging Healthcare Excellence with Seamless Management. Where Innovation Meets Care, Every Step of the Way.
+          </p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="/staff/login" class="text-reset">Staff Login</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            help@mediconnect.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2023 Copyright: All rights reserved
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 </html>

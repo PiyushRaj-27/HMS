@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'patients',
+    'staff',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,4 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
+MEDIA_URL = '/media/'

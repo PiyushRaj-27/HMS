@@ -20,4 +20,6 @@ urlpatterns = [
     path("/register", v.register),
     path("/login", v.loginuser),
     path("/logout", v.logoutuser),
+    path("/dashboard",v.dashboard),
+    path("/update", v.update),
 ]
