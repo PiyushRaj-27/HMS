@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from .models import patients
+from appointments.models import appointment
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import string
@@ -125,8 +126,8 @@ def dashboard(request):
     userid = request.user.id
     patient = patients.objects.get(email_id = userid)
     imgUrl = patient.img.url
-
-    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp} 
+    appoints = appointment.objects.filter(pat_id = userid)
+    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp, "appoint": appoints,"address": patient.address} 
     return render(request,"patientDashBoard.html", context)
 
 
