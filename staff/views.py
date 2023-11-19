@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from appointments.models import appointment
 from django.contrib.auth.decorators import login_required
 import string
+import datetime
 from .models import staff
 # Create your views here.
 # dummy data      username : dranup@gmail.com     password: dranup.123123
@@ -40,7 +42,13 @@ def dashboard(request):
     UserId = request.user.id
     Staff = staff.objects.get(email_id = UserId)
     imgUrl = Staff.img.url
-    context = {"fname": Staff.fname, "lname": Staff.lname,"department": Staff.department.capitalize() ,"level": Staff.level.capitalize(), "age" : Staff.age, "blood": Staff.bloodGrp, "state": Staff.state, "city": Staff.city, "address": Staff.address, "img": imgUrl, "email": User.username}
+    appoints = appointment.objects.filter(department = Staff.department)
+    apoint = []
+    today = datetime.date.today()
+    for item in appoints:
+        if item.date>=today:
+            apoint.append(item)
+    context = {"fname": Staff.fname, "lname": Staff.lname,"department": Staff.department.capitalize() ,"level": Staff.level.capitalize(), "age" : Staff.age, "blood": Staff.bloodGrp, "state": Staff.state, "city": Staff.city, "address": Staff.address, "img": imgUrl, "email": User.username, "appointments": apoint}
 
     return render(request,"staffDashBoard.html", context)
 

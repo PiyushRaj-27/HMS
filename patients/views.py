@@ -6,6 +6,7 @@ from appointments.models import appointment
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import string
+import datetime
 #dummy data      email: test2@gmail.com      pass: test.123123
 
 # Create your views here.
@@ -127,7 +128,17 @@ def dashboard(request):
     patient = patients.objects.get(email_id = userid)
     imgUrl = patient.img.url
     appoints = appointment.objects.filter(pat_id = userid)
-    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp, "appoint": appoints,"address": patient.address} 
+    appoints = appoints.order_by("-date")
+    appoints = appoints[:50]
+    attended = []
+    upcoming = []
+    today = datetime.date.today();
+    for apoint in appoints:
+        if apoint.date > today:
+            upcoming.append(apoint)
+        else:
+            attended.append(apoint)
+    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp, "appoint": appoints, "upcoming": upcoming, "attended": attended,"address": patient.address} 
     return render(request,"patientDashBoard.html", context)
 
 

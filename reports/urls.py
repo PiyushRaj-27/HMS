@@ -17,12 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+import reports.views as v
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include('home.urls')),
-    path('home/', include('home.urls')),
-    path('users', include('patients.urls')),
-    path("staff", include("staff.urls")),
-    path('appointment', include("appointments.urls")),
-    path('reports', include('reports.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('/', v.showReport),
+    path('/download/<str:filename>',v.downloadReport),
+]
