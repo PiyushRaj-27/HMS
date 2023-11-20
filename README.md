@@ -25,7 +25,7 @@ Welcome to the Hospital Management System, MediConnect GitHub repository! This a
 4. [Configuration](#configuration)
 5. [Usage](#usage)
 6. [License](#license)
-7. [Note]
+7. [Note](#note)
 ## Features
 
 - **Patient Management:** Efficiently record and manage patient information.
