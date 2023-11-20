@@ -24,7 +24,8 @@ Welcome to the Hospital Management System, MediConnect GitHub repository! This a
     - [Installation](#installation)
 4. [Configuration](#configuration)
 5. [Usage](#usage)
-
+6. [License](#license)
+7. [Note]
 ## Features
 
 - **Patient Management:** Efficiently record and manage patient information.
@@ -84,6 +85,10 @@ python manage.py runserver
 ```
 
 Visit http://localhost:8000 in your browser to access the Hospital Management System.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit/). See the `LICENSE.md` file for details.
 
 ## Note
 
