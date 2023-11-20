@@ -1,4 +1,14 @@
 # Hospital Management System (Django)
+Team: Techno4
+Members:
+1. Piyush Raj
+2. Gaurav Kumar
+3. Priyanshu Raj
+4. Praveen Kumar Dhusia
+
+Project made under the guidance of Shri Gopal Krishna, Department of computer science and engineering
+
+National Institute of Technology Patna 
 
 ## Introduction
 
@@ -73,3 +83,6 @@ python manage.py runserver
 
 Visit http://localhost:8000 in your browser to access the Hospital Management System.
 
+## Note
+
+Not for commercial usage. Made as a college project with ❤️ and ☕.
