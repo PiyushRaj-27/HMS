@@ -13,8 +13,6 @@ Welcome to the Hospital Management System (Django) GitHub repository! This appli
     - [Installation](#installation)
 4. [Configuration](#configuration)
 5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Features
 
