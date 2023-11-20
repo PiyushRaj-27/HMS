@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>Hospital management System</title>
+    {% load static %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home">MediConnect</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container d-f justify-content-center flex-column p-5">
+        <div class="card">
+          <div class="card-header p-4">
+            <h2>MediConnect Disease prediction tools</h2>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">What is disease predictor? </h5>
+            <p class="card-text">We at MediConnect have trained machine learning model for variour diseases. These models have been trained on millions of real world data. These can be used for predicting whether you have some disease or not based on the values of your lab test reports.
+              <div class="alert alert-primary mt-3 mb-3" role="alert">
+                Please note that the prediction are made by computer and not by expert doctor. It is very important to understand the model may not be correct everytime. <b>Please do not panic</b> if your test results are <b>positive</b>. Consult a doctor before coming to any conclusion. 
+              </div>
+              <div class="alert alert-danger mt-3 mb-3" role="alert">
+                <b>Do not take any kind of medication without consulting any practiced doctor. </b> 
+              </div>   
+            </p>
+            <br>
+            <h4 class="card-title">How to use our models: </h4>
+            <p class="card-text">Using our model are prety easy. Here is how you can use it:
+            <br> 1. Scroll to the bottom of this page and select appropriate model (select one related to disease you want to check for).
+            <br> 2. That will redirect you to predictor. There input all the values asked from you lab reports and click submit.
+            <br> 3. Once you click submit, the result will appear on the bottom of that page.
+            <div class="alert alert-danger mt-3 mb-3" role="alert">
+              <b>Do not take any kind of medication without consulting any practiced doctor. </b> 
+            </div>    
+            </p>
+    
+    
+            <br>
+            <h4 class="card-title">General notes:</h4>
+            <p class="card-text">All the fields in the form page are required in order to make accurate prediction.</p>
+    
+            
+          </div>
+        </div>
+      </div>
+    
+      <div class="container text-center">
+        <div class="row align-items-center justify-content-evenly">
+          <div class="col d-flex m-3 justify-content-center">
+
+            <div class="card text-center"  style="width: 18rem;">
+                <img src="{% static '/images/diabetes.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Check for diabetes</h5>
+                  <p class="card-text">Click here to check for diabetes.</p>
+                  <a href="/predict/diabetes" class="btn btn-success">Check</a>
+                </div>
+              </div>
+          </div>
+          <!-- <div class="col d-flex m-3 justify-content-center">
+
+            <div class="card text-center" style="width: 18rem;">
+                <img src="{% static '/images/patient3.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                {% if loggedIn %}
+                <h5 class="card-title">Patient Dashboard</h5>
+                <p class="card-text">Click here to view Dashboard.</p>
+                <a href="/users/dashboard" class="btn btn-success">Dashboard</a>
+                {% else %}
+                  <h5 class="card-title">Patient Login</h5>
+                  <p class="card-text">Click here to login.</p>
+                  <a href="/users/login" class="btn btn-success">Login</a>
+                {% endif %}
+                </div>
+              </div>
+          </div> -->
+        </div>
+      </div>
+</body>
+</html>

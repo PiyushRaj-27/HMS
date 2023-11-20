@@ -17,5 +17,5 @@ from django.contrib import admin
 from django.urls import path, include
 import appointments.views as v
 urlpatterns = [
-    path('/book', v.bookAppointment, name="home")
+    path('book', v.bookAppointment, name="home")
 ]

@@ -21,8 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('home.urls')),
     path('home/', include('home.urls')),
-    path('users', include('patients.urls')),
-    path("staff", include("staff.urls")),
-    path('appointment', include("appointments.urls")),
-    path('reports', include('reports.urls')),
+    path('users/', include('patients.urls')),
+    path("staff/", include("staff.urls")),
+    path('appointment/', include("appointments.urls")),
+    path('reports/', include('reports.urls')),
+    path("predict/", include('prediction.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

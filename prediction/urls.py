@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import patients.views as v
+from django.conf import settings
+from django.conf.urls.static import static
+from . import views
 urlpatterns = [
-    path("register", v.register),
-    path("login", v.loginuser),
-    path("logout", v.logoutuser),
-    path("dashboard",v.dashboard),
-    path("update", v.update),
+    path('', views.predict),
+    path('diabetes', views.diabetes),
 ]
