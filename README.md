@@ -1,4 +1,4 @@
-# Hospital Management System (Django)
+# MediConnect (Hospital management system)
 Team: Techno4
 
 Members:
@@ -13,7 +13,7 @@ National Institute of Technology Patna
 
 ## Introduction
 
-Welcome to the Hospital Management System (Django) GitHub repository! This application, built using Django, is designed to streamline and enhance the operations of healthcare facilities. Whether you're a developer contributing to the project or a user exploring its features, this README provides a comprehensive guide to get you started.
+Welcome to the Hospital Management System, MediConnect GitHub repository! This application, built using Django, is designed to streamline and enhance the operations of healthcare facilities. Whether you're a developer contributing to the project or a user exploring its features, this README provides a comprehensive guide to get you started.
 
 ## Table of Contents
 
@@ -41,6 +41,7 @@ Before you begin, ensure you have the following installed:
 
 - Python (3.x)
 - Django
+- MySQL server and workbench
 - [Additional dependencies listed in requirements.txt]
 
 ### Installation
