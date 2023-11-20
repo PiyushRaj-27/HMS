@@ -50,7 +50,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/hospital-management-system-django.git
+    git clone https://github.com/PiyushRaj-27/HMS.git
     ```
 
 2. **Install dependencies:**
