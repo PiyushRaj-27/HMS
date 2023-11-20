@@ -19,8 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 import staff.views as v
 urlpatterns = [
-    path("/login", v.loginUser),
-    path("/logout", v.logoutUser),
-    path("/dashboard", v.dashboard),
-    path("/list", v.staffList),
+    path("login", v.loginUser),
+    path("logout", v.logoutUser),
+    path("dashboard", v.dashboard),
+    path("list", v.staffList),
 ] 

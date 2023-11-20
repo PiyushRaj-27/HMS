@@ -1,164 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <title>Hospital management System</title>
-    {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <title>Hospital management System</title>
+  {% load static %}
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/home">MediConnect</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">MediConnect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
+          </li>
 
-
-
-      <div class="container-fluid p-5 bg-light align-items-center d-flex justify-content-around">
-
-        <div class="container text-center">
-            <div class="row align-items-center justify-content-evenly">
-              <div class="col d-flex m-3 justify-content-center">
-
-                <div class="card text-center"  style="width: 18rem;">
-                    <img src="{% static '/images/patient2.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Patient Registration</h5>
-                      <p class="card-text">Click Here to register yourself.</p>
-                      <a href="/users/register" class="btn btn-success">Register</a>
-                    </div>
-                  </div>
-              </div>
-              <div class="col d-flex m-3 justify-content-center">
-
-                <div class="card text-center" style="width: 18rem;">
-                    <img src="{% static '/images/patient3.png' %}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    {% if loggedIn %}
-                    <h5 class="card-title">Patient Dashboard</h5>
-                    <p class="card-text">Click here to view Dashboard.</p>
-                    <a href="/users/dashboard" class="btn btn-success">Dashboard</a>
-                    {% else %}
-                      <h5 class="card-title">Patient Login</h5>
-                      <p class="card-text">Click here to login.</p>
-                      <a href="/users/login" class="btn btn-success">Login</a>
-                    {% endif %}
-                    </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        
-          
+        </ul>
       </div>
-      <div class="container d-f justify-content-center flex-column p-5">
-        <div class="card" >
-            <div class="card-header p-4">
-              <h2>Basic First Aid</h2>
-            </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container-fluid p-5 bg-light align-items-center d-flex justify-content-around">
+
+    <div class="container text-center">
+      <div class="row align-items-center justify-content-evenly">
+        <div class="col d-flex m-3 justify-content-center">
+
+          <div class="card text-center" style="width: 18rem;">
+            <img src="{% static '/images/patient2.png' %}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">What is Basic First Aid? </h5>
-              <p class="card-text">Basic first aid is being able to provide basic medical care to someone who is experiencing a sudden injury or illness.  It often comes in forms such as treatment to burns, cuts, or even insect stings; but could also consist of providing support to someone in the middle of a medical emergency. In these scenarios, it’s important to remain calm, assess the situation, and work to stabilize the person.  </p>
-              <br>
-              <h5 class="card-title">Remain Calm: </h5>
-              <p class="card-text">When administering aid, it’s important that you always remain calm so can you think clearly and assess the situation while comforting the person in distress. </p>
-              
-
-              <br>
-              <h5 class="card-title">Assess the Situation:</h5>
-              <p class="card-text">After you take a deep breath, it’s important to assess the situation to see if basic aid is required or if emergency medical attention is required.</p>
-
-              <br>
-              <h5 class="card-title">Stabilize:</h5>
-              <p class="card-text">Use your knowledge and basic aid skills to stabilize the injury. If basic aid isn’t working, reassess your approach and provide basic care until emergency help arrives.</p>
-              <div class="alert alert-primary mt-5 mb-5" role="alert">
-                Consult a practiced physician as soon as possible.
-              </div>
-              
-              <h5 class="card-title"><b>Universal Precautions</b> </h5>
-              <p class="card-text">When administering first aid, it’s important that you take proper precautions to ensure your safety and the safety of the person you are caring for. This includes washing your hands, wearing proper PPE, and disposing of any clothing, bandages, or protective equipment that may have been contaminated.</p> <br>
-
-              <h5 class="card-title">Step One: Hand Washing</h5>
-              <p class="card-text">The first step to administering first aid is proper hygiene, best achieved by washing your hands. When washing your hands, try to use hot water and anti-bacterial soap if available.  If unavailable, consider using a disinfectant wipe, which can often be found in a standard first aid kit.</p> <br>
-              <h5 class="card-title">Step Two: Personal Protective Equipment</h5>
-              <p class="card-text">After washing your hands, you’ll want to protect yourself and the person you are caring for by wearing proper personal protective equipment, known as PPE.  The most common first aid PPE includes, but is not limited to gloves safety glasses and breathing barriers should CPR be necessary. .</p> <br>
-              <h5 class="card-title">Step Three: Disposing of contaminated clothes, bandages, or PPE.</h5>
-              <p class="card-text">Practicing good housekeeping and trash disposal are important after administering first aid.  This includes the disposal of clothing, bandages, or PPE that may have contacted blood or bodily fluids.  For contaminated clothing, it’s important to either dispose of them or wash them immediately to reduce the risk of infection through the skin. Used bandages, PPE, sharp objects or needles,  should be immediately disposed of using a biohazard bag or sharps container.  When handling these objects, always follow the non-pumpable items and service procedures for proper disposal. After disposing of these objects, be sure to wash your hands once again using hot water and antibacterial soap for a minimum of 20 seconds.</p>
+              <h5 class="card-title">Patient Registration</h5>
+              <p class="card-text">Click Here to register yourself.</p>
+              <a href="/users/register" class="btn btn-success">Register</a>
             </div>
           </div>
-      </div>
-
-
-
-
-<footer class="text-center text-lg-start bg-light text-muted">
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <div class="me-5 d-none d-lg-block">
-      <span>Stay safe, stay healthy!</span>
-    </div>
-  </section>
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <div class="row mt-3">
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">MediConnect
-          </h6>
-          <p>
-            MediConnect: Bridging Healthcare Excellence with Seamless Management. Where Innovation Meets Care, Every Step of the Way.
-          </p>
         </div>
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="/staff/login" class="text-reset">Staff Login</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
+        <div class="col d-flex m-3 justify-content-center">
+
+          <div class="card text-center" style="width: 18rem;">
+            <img src="{% static '/images/patient3.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              {% if loggedIn %}
+              <h5 class="card-title">Patient Dashboard</h5>
+              <p class="card-text">Click here to view Dashboard.</p>
+              <a href="/users/dashboard" class="btn btn-success">Dashboard</a>
+              {% else %}
+              <h5 class="card-title">Patient Login</h5>
+              <p class="card-text">Click here to login.</p>
+              <a href="/users/login" class="btn btn-success">Login</a>
+              {% endif %}
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
-            help@mediconnect.com
-          </p>
-          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        <div class="col d-flex m-3 justify-content-center">
+
+          <div class="card text-center" style="width: 18rem;">
+            <img src="{% static '/images/ai.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Disease predictor</h5>
+              <p class="card-text">Click here to predict multiple diseases.</p>
+              <a href="/predict/" class="btn btn-success">Predict</a>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
-  </section>
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2023 Copyright: All rights reserved
+
+
   </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+  <div class="container d-f justify-content-center flex-column p-5">
+    <div class="card">
+      <div class="card-header p-4">
+        <h2>Basic First Aid</h2>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">What is Basic First Aid? </h5>
+        <p class="card-text">Basic first aid is being able to provide basic medical care to someone who is experiencing
+          a sudden injury or illness. It often comes in forms such as treatment to burns, cuts, or even insect stings;
+          but could also consist of providing support to someone in the middle of a medical emergency. In these
+          scenarios, it’s important to remain calm, assess the situation, and work to stabilize the person. </p>
+        <br>
+        <h5 class="card-title">Remain Calm: </h5>
+        <p class="card-text">When administering aid, it’s important that you always remain calm so can you think clearly
+          and assess the situation while comforting the person in distress. </p>
+
+
+        <br>
+        <h5 class="card-title">Assess the Situation:</h5>
+        <p class="card-text">After you take a deep breath, it’s important to assess the situation to see if basic aid is
+          required or if emergency medical attention is required.</p>
+
+        <br>
+        <h5 class="card-title">Stabilize:</h5>
+        <p class="card-text">Use your knowledge and basic aid skills to stabilize the injury. If basic aid isn’t
+          working, reassess your approach and provide basic care until emergency help arrives.</p>
+        <div class="alert alert-primary mt-5 mb-5" role="alert">
+          Consult a practiced physician as soon as possible.
+        </div>
+
+        <h5 class="card-title"><b>Universal Precautions</b> </h5>
+        <p class="card-text">When administering first aid, it’s important that you take proper precautions to ensure
+          your safety and the safety of the person you are caring for. This includes washing your hands, wearing proper
+          PPE, and disposing of any clothing, bandages, or protective equipment that may have been contaminated.</p>
+        <br>
+
+        <h5 class="card-title">Step One: Hand Washing</h5>
+        <p class="card-text">The first step to administering first aid is proper hygiene, best achieved by washing your
+          hands. When washing your hands, try to use hot water and anti-bacterial soap if available. If unavailable,
+          consider using a disinfectant wipe, which can often be found in a standard first aid kit.</p> <br>
+        <h5 class="card-title">Step Two: Personal Protective Equipment</h5>
+        <p class="card-text">After washing your hands, you’ll want to protect yourself and the person you are caring for
+          by wearing proper personal protective equipment, known as PPE. The most common first aid PPE includes, but is
+          not limited to gloves safety glasses and breathing barriers should CPR be necessary. .</p> <br>
+        <h5 class="card-title">Step Three: Disposing of contaminated clothes, bandages, or PPE.</h5>
+        <p class="card-text">Practicing good housekeeping and trash disposal are important after administering first
+          aid. This includes the disposal of clothing, bandages, or PPE that may have contacted blood or bodily fluids.
+          For contaminated clothing, it’s important to either dispose of them or wash them immediately to reduce the
+          risk of infection through the skin. Used bandages, PPE, sharp objects or needles, should be immediately
+          disposed of using a biohazard bag or sharps container. When handling these objects, always follow the
+          non-pumpable items and service procedures for proper disposal. After disposing of these objects, be sure to
+          wash your hands once again using hot water and antibacterial soap for a minimum of 20 seconds.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <footer class="text-center text-lg-start bg-light text-muted">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <span>Stay safe, stay healthy!</span>
+      </div>
+    </section>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">MediConnect
+            </h6>
+            <p>
+              MediConnect: Bridging Healthcare Excellence with Seamless Management. Where Innovation Meets Care, Every
+              Step of the Way.
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="/staff/login" class="text-reset">Staff Login</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              help@mediconnect.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright: All rights reserved
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 </body>
+
 </html>

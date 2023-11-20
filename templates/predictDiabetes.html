@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>Hospital management System</title>
+    {% load static %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home">MediConnect</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/staff/list">Staffs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/admin">Admin</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid d-flex flex-column align-items-center p-5 bg-light">
+        <h1>Diabetes prediction model</h1>
+        <form action="/predict/diabetes" method="post">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+          <label for="formGroupExampleInput">Pregnancies</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" name="pregnancies" placeholder="Sample value 1" required>
+        </div>
+        <div class="form-group mb-3">
+          <label for="formGroupExampleInput2">Glucose</label>
+          <input type="number" class="form-control" id="formGroupExampleInput2" name="glucose" placeholder="Sample value 140" required>
+
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput3">Blood Pressure</label>
+            <input type="number" class="form-control" id="formGroupExampleInput3" name="bp" placeholder="Sample value 70" required>
+            
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput4">Skin Thickness</label>
+            <input type="number" class="form-control" id="formGroupExampleInput4" name="skin" placeholder="Sample value 30" required>
+            
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput5">Insulin</label>
+            <input type="number" class="form-control" id="formGroupExampleInput5" name="insulin" placeholder="Sample value 0" required>
+            
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput6">BMI</label>
+            <input type="number" class="form-control" id="formGroupExampleInput6" name="bmi" placeholder="Sample value 25.0" required>
+            
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput7">Diabetes Pedigree Function</label>
+            <input type="number" class="form-control" id="formGroupExampleInput7" name="dpf" placeholder="Sample value 0.300" required>
+            
+        </div>
+        <div class="form-group mb-3">
+            <label for="formGroupExampleInput8">Age</label>
+            <input type="number" class="form-control" id="formGroupExampleInput8" name="age" placeholder="Sample value 35" required>
+            
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      {% if checked %}
+
+        {% if result %}
+        <div class="alert alert-danger mt-3" role="alert">
+            Diabetes checkup result positive. Please consult a doctor as soon as possible.
+        </div>
+        {% else %}
+        <div class="alert alert-primary mt-3" role="alert">
+            Diabetes checkup result negative. But still consult a doctor!
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+</body>
+</html>

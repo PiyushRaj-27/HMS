@@ -19,6 +19,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 import reports.views as v
 urlpatterns = [
-    path('/', v.showReport),
-    path('/download/<str:filename>',v.downloadReport),
+    path('', v.showReport),
+    path('download/<str:filename>',v.downloadReport),
 ]
