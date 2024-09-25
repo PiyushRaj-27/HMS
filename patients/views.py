@@ -135,16 +135,11 @@ def dashboard(request):
     today = datetime.date.today()
     currTime = datetime.datetime.now().strftime("%H:%M")
     for apoint in appoints:
-        if apoint.date > today:
+        if apoint.date >= today:
             upcoming.append(apoint)
-        elif apoint.date == today:
-            if apoint.time > currTime:
-                upcoming.append(apoint)
-            else:
-                attended.append(apoint)
         else:
             attended.append(apoint)
-    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp, "appoint": appoints, "upcoming": upcoming, "attended": attended,"address": patient.address} 
+    context = {"fname": patient.fname, "lname":patient.lname, "img": imgUrl, "state": patient.state, "city": patient.city, "pincode": patient.pincode, "email": request.user.username, "marriage":patient.marr, "empl": patient.empl.capitalize(), "age":patient.age, "Blood":patient.bloodGrp, "appoint": appoints, "upcoming": upcoming, "attended": attended,"address": patient.address, "balance": patient.credit} 
     return render(request,"patientDashBoard.html", context)
 
 

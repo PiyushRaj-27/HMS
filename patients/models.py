@@ -15,6 +15,6 @@ class patients(models.Model):
     marr = models.CharField(max_length=10)
     empl = models.CharField(max_length=10)
     img = models.ImageField(upload_to="data/images")
-
+    credit = models.CharField(max_length=8, default="100")
     def __str__(self) -> str:
         return self.email.username

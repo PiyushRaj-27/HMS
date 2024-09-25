@@ -7,11 +7,15 @@ from staff.models import staff
 from appointments.models import appointment
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 import string
 import datetime
 import mimetype
 import os
+from pathlib import Path
 # Create your views here.
+
+BASE_MEDIA_ROOT = settings.MEDIA_ROOT
 
 @login_required(login_url="/users/login")
 def showReport(request):
@@ -26,8 +30,7 @@ def showReport(request):
 
 @login_required(login_url="/users/login")
 def downloadReport(request, filename):
-    fl_path = "D:/College Files/Sem5/Assignment/HMLS/hms/media/data/reports"
-    fl_path += "/" + filename
+    fl_path = Path.joinpath(BASE_MEDIA_ROOT,'data','reports', filename)
     if os.path.exists(fl_path):
         with open(fl_path, "rb") as f:
             response = HttpResponse(f.read(), content_type='application/force-download')
